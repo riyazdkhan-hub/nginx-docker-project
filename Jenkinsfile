@@ -5,7 +5,7 @@ pipeline {
 
   stage('Clone Repo') {
    steps {
-    git 'https://github.com/riyazdkhan-hub/nginx-docker-project.git'
+    git branch: 'main', url: 'https://github.com/riyazdkhan-hub/nginx-docker-project.git'
    }
   }
 
