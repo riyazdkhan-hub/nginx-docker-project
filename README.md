@@ -37,7 +37,7 @@ This simulates a **real-world DevOps CI/CD deployment pipeline**.
                       |
                       v
              +------------------+
-             |      Jenkins     |
+             |     Jenkins      |
              |   CI/CD Pipeline |
              +--------+---------+
                       |
@@ -269,33 +269,6 @@ Example:
 
 ```
 http://54.123.45.67:5002
-```
-
----
-
-# 🏗️ Updated Architecture with Ports
-
-```
-Developer
-   |
-   v
-GitHub Repository
-   |
-   v
-Jenkins Server (Port 8080)
-   |
-   |  Build Docker Image
-   v
-Docker Container
-   |
-   |  Port Mapping
-   |  5002 → 80
-   v
-Nginx Web Server
-   |
-   v
-End User Browser
-http://SERVER_IP:5002
 ```
 
 ---
