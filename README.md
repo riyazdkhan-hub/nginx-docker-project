@@ -244,13 +244,83 @@ This project demonstrates:
 
 ---
 
-# 📈 Future Improvements
+# 🔌 Ports Used in This Project
 
-* Add GitHub Webhook for automatic builds
-* Push Docker images to DockerHub
-* Add Nginx Reverse Proxy
-* Deploy using Kubernetes
-* Implement monitoring with Prometheus & Grafana
+This project uses the following ports for different services.
+
+| Service                      | Port | Description                                         |
+| ---------------------------- | ---- | --------------------------------------------------- |
+| Jenkins                      | 8080 | Used to access the Jenkins dashboard                |
+| Docker Container (Nginx App) | 5002 | Public port used to access the deployed application |
+| Nginx inside container       | 80   | Default web server port inside the container        |
+| SSH                          | 22   | Used to connect to the server                       |
+
+---
+
+# 🌐 Application Access
+
+After the Jenkins pipeline deploys the container, you can access the application using:
+
+```
+http://SERVER_PUBLIC_IP:5002
+```
+
+Example:
+
+```
+http://54.123.45.67:5002
+```
+
+---
+
+# 🏗️ Updated Architecture with Ports
+
+```
+Developer
+   |
+   v
+GitHub Repository
+   |
+   v
+Jenkins Server (Port 8080)
+   |
+   |  Build Docker Image
+   v
+Docker Container
+   |
+   |  Port Mapping
+   |  5002 → 80
+   v
+Nginx Web Server
+   |
+   v
+End User Browser
+http://SERVER_IP:5002
+```
+
+---
+
+# 🐳 Docker Port Mapping
+
+The container is started with this command:
+
+```
+docker run -d -p 5002:80 --name mycontainer myapp
+```
+
+Meaning:
+
+```
+Server Port 5002  →  Container Port 80
+```
+
+So when a user visits:
+
+```
+http://SERVER_IP:5002
+```
+
+The request is forwarded to **Nginx running on port 80 inside the container**.
 
 ---
 
