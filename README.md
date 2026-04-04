@@ -301,4 +301,4 @@ The request is forwarded to **Nginx running on port 80 inside the container**.
 
 **Riyaz Khan**
 
-DevOps Enthusiast | Docker | Jenkins | Linux | CI/CD
+DevOps Enthusiast | Docker | Jenkins | Linux | CI/CD | Ansible | Terraform
